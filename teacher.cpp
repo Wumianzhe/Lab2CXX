@@ -25,14 +25,17 @@ void teacher::review(answers::queue* pending) {
 
 void teacher::printResults(std::ostream& os) {
     // table header
-    os << "+" << std::string(35, '-') << "+" << std::string(17, '-') << "+\n";
-    os << "|" << std::string(30, ' ') << "Имя  |  решено/сдано   |\n";
-    os << "+" << std::string(35, '-') << "+" << std::string(17, '-') << "+\n";
+    int c1Width = 30;
+    os << "+" << std::string(c1Width, '-') << "+" << std::string(17, '-') << "+\n";
+    os << "|" << std::string(c1Width - 5, ' ') << "Имя  |  решено/сдано   |\n";
+    os << "+" << std::string(c1Width, '-') << "+" << std::string(17, '-') << "+\n";
     // table body
     for (auto& res : results) {
-        os << "|" << std::setw(30) << res.first << "|" << std::setw(8) << res.second.first << "/" << std::setw(8)
-           << res.second.second << "|\n";
+        // unicode...
+        int nameLength = (res.first.size() - 1) / 2;
+        os << "|" << std::setw(c1Width + nameLength) << res.first << "|" << std::setw(8) << res.second.first << "/"
+           << std::setw(8) << res.second.second << "|\n";
     }
     // table footer
-    os << "+" << std::string(30, '-') << "+" << std::string(17, '-') << "+" << std::endl;
+    os << "+" << std::string(c1Width, '-') << "+" << std::string(17, '-') << "+" << std::endl;
 }

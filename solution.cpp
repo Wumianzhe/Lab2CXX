@@ -1,6 +1,6 @@
 #include "solution.hpp"
 #include <math.h>
-const double eps = 1e6;
+const double eps = 1e8;
 
 solution::solution(int rootCount, double x1, double x2) : _rootCount(rootCount), _x1(x1), _x2(x2) {}
 

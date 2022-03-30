@@ -16,12 +16,15 @@ typedef std::tuple<equation, solution, std::string> answer;
 namespace answers {
 
 class queue;
+// FIXME does not update when I expect
 static queue* latest = nullptr;
+queue* createQueue();
 
 class reader {
   protected:
     void pop(answers::queue* q = latest);
     answer front(answers::queue* q = latest);
+    bool isEmpty(answers::queue* q = latest);
 };
 class writer {
   protected:

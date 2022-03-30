@@ -9,11 +9,11 @@ namespace student {
 class base : public answers::writer {
   public:
     base(std::string name) : _name(name){};
-    void submit(const equation& eqn, answers::queue* q);
+    void submit(const equation& eqn, answers::queue* q = answers::latest);
     virtual ~base() = default;
 
   private:
-    virtual solution solve(const equation& eqn);
+    virtual solution solve(const equation& eqn) = 0;
     std::string _name;
 };
 

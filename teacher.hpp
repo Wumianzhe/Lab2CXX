@@ -10,6 +10,7 @@ class teacher : public answers::reader {
   public:
     void review(answers::queue* pending = answers::latest);
     void printResults(std::ostream& os = std::cout);
+    bool hasWork(answers::queue* pending = answers::latest) { return !isEmpty(pending); }
 
   private:
     solution solve(const equation& eqn);
