@@ -12,7 +12,7 @@ class answers::queue {
 
 queue* answers::createQueue() {
     queue* q = new queue();
-    latest = q;
+    Default = q;
     return q;
 }
 void writer::push(answer ans, queue* q) { q->_q.push(ans); }

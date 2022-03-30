@@ -9,7 +9,7 @@ namespace student {
 class base : public answers::writer {
   public:
     base(std::string name) : _name(name){};
-    void submit(const equation& eqn, answers::queue* q = answers::latest);
+    void submit(const equation& eqn, answers::queue* q = answers::Default);
     virtual ~base() = default;
 
   private:

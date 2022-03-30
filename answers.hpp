@@ -16,19 +16,19 @@ typedef std::tuple<equation, solution, std::string> answer;
 namespace answers {
 
 class queue;
-// FIXME does not update when I expect
-static queue* latest = nullptr;
 queue* createQueue();
+// inline did what static/extern can not
+inline queue* Default = nullptr;
 
 class reader {
   protected:
-    void pop(answers::queue* q = latest);
-    answer front(answers::queue* q = latest);
-    bool isEmpty(answers::queue* q = latest);
+    void pop(answers::queue* q = Default);
+    answer front(answers::queue* q = Default);
+    bool isEmpty(answers::queue* q = Default);
 };
 class writer {
   protected:
-    void push(answer ans, queue* q = latest);
+    void push(answer ans, queue* q = Default);
 };
 
 } // namespace answers

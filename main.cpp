@@ -38,6 +38,10 @@ int main(int argc, char* argv[]) {
     // unsure, but I think i need reference there to write to group
     for (auto& pStud : group) {
         string name = nameGen();
+        if (name == "Красников Роман") {
+            pStud = new student::good(name);
+            continue;
+        }
         switch (rand() % 3) {
         case 0: {
             pStud = new student::bad(name);
@@ -58,13 +62,13 @@ int main(int argc, char* argv[]) {
     equation eqn(in);
     do {
         for (auto pStud : group) {
-            pStud->submit(eqn, pending);
+            pStud->submit(eqn);
         }
     } while (in >> eqn);
     in.close();
 
-    while (prof.hasWork(pending)) {
-        prof.review(pending);
+    while (prof.hasWork()) {
+        prof.review();
     }
     prof.printResults();
 

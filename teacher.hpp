@@ -8,9 +8,9 @@
 
 class teacher : public answers::reader {
   public:
-    void review(answers::queue* pending = answers::latest);
+    void review(answers::queue* pending = answers::Default);
     void printResults(std::ostream& os = std::cout);
-    bool hasWork(answers::queue* pending = answers::latest) { return !isEmpty(pending); }
+    bool hasWork(answers::queue* pending = answers::Default) { return !isEmpty(pending); }
 
   private:
     solution solve(const equation& eqn);
