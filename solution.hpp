@@ -6,6 +6,7 @@
 class solution {
   public:
     solution(int rootCount, double x1, double x2);
+    bool operator==(const solution& r);
 
   private:
     int _rootCount;
